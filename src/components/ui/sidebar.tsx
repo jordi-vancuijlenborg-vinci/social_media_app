@@ -76,17 +76,23 @@ const SidebarMenuItem = React.forwardRef<
 SidebarMenuItem.displayName = "SidebarMenuItem"
 
 const sidebarMenuButtonVariants = cva(
-  "flex w-full items-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700",
+  "flex w-full items-center rounded-lg text-base font-normal text-gray-900 dark:text-white",
   {
     variants: {
       isActive: {
-        true: "bg-primary-500 text-white hover:bg-primary-500 dark:bg-primary-500 dark:hover:bg-primary-500",
+        true: "",
         false: "",
       },
     },
     defaultVariants: {
       isActive: false,
     },
+    compoundVariants: [
+      {
+        isActive: false,
+        className: "",
+      },
+    ],
   }
 )
 
@@ -100,7 +106,7 @@ const SidebarMenuButton = React.forwardRef<
   HTMLButtonElement,
   SidebarMenuButtonProps
 >(({ className, isActive, asChild = false, ...props }, ref) => {
-  const Comp = asChild ? React.Fragment : "button"
+  const Comp = asChild ? 'span' : 'button';
   return (
     <Comp
       ref={ref}
