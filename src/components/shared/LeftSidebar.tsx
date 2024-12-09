@@ -35,7 +35,7 @@ const LeftSidebar = () => {
   };
 
   return (
-    <Sidebar className="w-[250px] hidden md:block">
+    <Sidebar className="w-[250px] hidden md:flex">
       <SidebarHeader className="p-4">
         <Link to="/" className="flex gap-3 items-center">
           <img
